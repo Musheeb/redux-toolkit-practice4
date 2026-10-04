@@ -8,9 +8,14 @@ import {
 import { useState } from "react";
 
 export default function Counter() {
+  // useSelector provides the state from the store.
+  // Definition - used to read data from redux store state.
   const count = useSelector((state) => state.counter.count);
+  // dispatch is to trigger the state update. 
+  // Definition - used to send (actions) to the redux store to trigger state updates.
   const dispatch = useDispatch();
   const [valueByUser, setValueByUser] = useState(0);
+  // Parsing is important, because it will crash if value is not number and to prevent the typescript errors as well.
   const addedValue = Number(valueByUser) || 0;
   const reset = () => {
     setValueByUser(0);
